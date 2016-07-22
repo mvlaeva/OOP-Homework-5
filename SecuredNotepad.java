@@ -10,6 +10,11 @@ class SecuredNotepad extends SimpleNotepad implements ISecure {
 		createPassword();
 	}
 
+	SecuredNotepad(int numberOfPages) {
+		super(numberOfPages);
+		createPassword();
+	}
+
 	@SuppressWarnings("resource")
 	@Override
 	public void createPassword() {
@@ -36,12 +41,6 @@ class SecuredNotepad extends SimpleNotepad implements ISecure {
 			if (!(this.password.equals(password)))
 				System.out.println("Invalid password! Try again or enter 'Q' to quit.");
 		} while (!(password.equals(this.password)) || (password.toLowerCase().equals('q')));
-		return this.password.equals(password);
-	}
-
-	public boolean enterPassword(String password) {
-		if (!(this.password.equals(password)))
-			System.out.println("Invalid password!");
 		return this.password.equals(password);
 	}
 

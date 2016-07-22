@@ -19,6 +19,23 @@ class SimpleNotepad implements INotepad {
 	}
 
 	@Override
+	public boolean searchWord(String word) {
+		for (Page page : pages) {
+			if (page.searchWord(word) == true)
+				return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void printAllPagesWithDigits() {
+		for (Page page : pages) {
+			if (page.containsDigits() == true)
+				page.view();
+		}
+	}
+
+	@Override
 	public void addText(int pageNumber, String text) {
 		try {
 			pages[pageNumber + 1].addText(text);

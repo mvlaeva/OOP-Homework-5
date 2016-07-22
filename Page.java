@@ -16,6 +16,18 @@ class Page {
 	}
 	// -----------------------------------------------------------------------------------
 
+	boolean searchWord(String word) {
+		return (this.text.contains(word));
+	}
+
+	boolean containsDigits() {
+		char[] result = this.text.toCharArray();
+		for (int index = 0; index < result.length; ++index)
+			if ((int) result[index] >= '0' && (int) result[index] <= '9')
+				return true;
+		return false;
+	}
+
 	void addText(String text) {
 		try {
 			if (this.text.equals("")) {
