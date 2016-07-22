@@ -15,20 +15,37 @@ class SecuredNotepad extends SimpleNotepad implements ISecure {
 		createPassword();
 	}
 
+	static boolean isSecure(String password) {
+		boolean hasLowerCase = false;
+		boolean hasUpperCase = false;
+		boolean hasDigit = false;
+		if (password.length() < 5)
+			return false;
+		for (int index = 0; index < password.length(); ++index) {
+			if ((int) password.charAt(index) >= 'a' && (int) password.charAt(index) <= 'z')
+				hasLowerCase = true;
+			if ((int) password.charAt(index) >= 'A' && (int) password.charAt(index) <= 'Z')
+				hasUpperCase = true;
+			if ((int) password.charAt(index) >= '0' && (int) password.charAt(index) <= '9')
+				hasDigit = true;
+		}
+		if (hasLowerCase == true && hasUpperCase == true && hasDigit == true)
+			return true;
+		return false;
+	}
+
 	@SuppressWarnings("resource")
 	@Override
 	public void createPassword() {
 		System.out.print("Enter password: ");
-		setPassword(new Scanner(System.in).nextLine());
-	}
-
-	void setPassword(String password) {
-		if (password.trim().length() > 0)
-			this.password = password;
-		else {
-			System.out.println("Invalid input.");
-			createPassword();
-		}
+		String password = "";
+		do {
+			password = new Scanner(System.in).nextLine();
+			if (!(isSecure(password)))
+				System.out.println(
+						"Your password must contain more than 5 characters, at least one upper case letter, at least one lower case letter and at least one digit. \nEnter password: ");
+		} while (!(isSecure(password)));
+		setPassword(password);
 	}
 
 	@SuppressWarnings("resource")
@@ -78,6 +95,15 @@ class SecuredNotepad extends SimpleNotepad implements ISecure {
 	public void printAllPages() {
 		if (enterPassword() == true)
 			super.printAllPages();
+	}
+
+	void setPassword(String password) {
+		if (password.trim().length() > 0)
+			this.password = password;
+		else {
+			System.out.println("Invalid input.");
+			createPassword();
+		}
 	}
 
 }
