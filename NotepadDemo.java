@@ -5,7 +5,7 @@ class NotepadDemo {
 		// SimpleNotepad mine = new SimpleNotepad();
 		// mine.addText(15, "ala bala nqqqkav si text");
 		// mine.printAllPages();
-		// mine.addText(15, "dobavqm i zaglavie", "na ti oshte");
+		// mine.addText(4, " 4 dobavdd44qm i zaglavie", "na 342ti oshte");
 		// mine.printAllPages();
 		// mine.erase(15);
 		// mine.addText(1, "duru buru 100 chadura");
@@ -17,15 +17,16 @@ class NotepadDemo {
 		// mine.eraseAll();
 
 		// SecuredNotepad u = new SecuredNotepad();
-		// u.addText(14, "ala bala");
+		// u.addText(14, "ala bal5a");
 		// u.addText(14, "mulchanieto na agnetata", "oshte malko text");
 		// u.printAllPages();
 		// u.addText(1, "", "sure");
 		// u.addText(1, "not empty anymore", "");
 		// u.printAllPages();
+		// mine.printAllPagesWithDigits();
 
 		// Page one = new Page();
-		// one.addText("adf sdfsdffss cat horse");
+		// one.addText("adf4 sdfsdffss cat horse");
 		// System.out.println(one.containsDigits());
 		// System.out.println(one.searchWord("cat"));
 
@@ -36,7 +37,7 @@ class NotepadDemo {
 		me.printAllPages();
 		me.erase(12);
 		me.printAllPagesWithDigits();
-		me.searchWord("3+5");
+		System.out.println(me.searchWord("3+5"));
 
 	}
 }

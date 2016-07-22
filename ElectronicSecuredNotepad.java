@@ -83,12 +83,6 @@ class ElectronicSecuredNotepad extends SecuredNotepad implements IElectronicDevi
 	}
 
 	@Override
-	public void createPassword() {
-		if (isStarted == true)
-			super.createPassword();
-	}
-
-	@Override
 	public boolean enterPassword() {
 		if (isStarted == true)
 			return super.enterPassword();

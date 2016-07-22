@@ -6,11 +6,12 @@ package Notepad;
  */
 
 class SimpleNotepad implements INotepad {
+	private static final int DEFAULT_NUMBER_OF_PAGES = 100;
 	private Page[] pages;
 
 	SimpleNotepad() {
 		// бележника по подразбиране ще има 100 страници
-		this.pages = new Page[100];
+		this.pages = new Page[DEFAULT_NUMBER_OF_PAGES];
 	}
 
 	SimpleNotepad(int howManyPages) {
@@ -21,6 +22,8 @@ class SimpleNotepad implements INotepad {
 	@Override
 	public boolean searchWord(String word) {
 		for (Page page : pages) {
+			if (page == null)
+				continue;
 			if (page.searchWord(word) == true)
 				return true;
 		}
@@ -29,9 +32,14 @@ class SimpleNotepad implements INotepad {
 
 	@Override
 	public void printAllPagesWithDigits() {
+
 		for (Page page : pages) {
+			if (page == null)
+				continue;
+			if (page.view().trim().equals(""))
+				continue;
 			if (page.containsDigits() == true)
-				page.view();
+				System.out.println(page.view());
 		}
 	}
 
